@@ -24,4 +24,15 @@ public class GlobalExceptionHandler {
                 .message(messages.toString())
                 .build();
     }
+
+    @ExceptionHandler(TransactionException.class)
+    public ErrorMessage handleTransactionException(WebRequest webRequest, TransactionException transactionException){
+        return ErrorMessage.builder()
+                .date(LocalDate.now())
+                .description(webRequest.getDescription(false))
+                .statusCode(HttpStatus.BAD_REQUEST.toString())
+                .message(transactionException.getMessage())
+                .build();
+
+    }
 }

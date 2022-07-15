@@ -20,11 +20,11 @@ public class Author {
     @Column(nullable = false)
     private String name;
 
+    @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = true)
     private int age;
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author",fetch = FetchType.EAGER)
     private List<Book> bookList;
 }

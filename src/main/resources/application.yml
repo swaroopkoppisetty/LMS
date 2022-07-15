@@ -1,10 +1,11 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
   datasource:
     url: jdbc:postgresql://localhost:5432/lms
     username: postgres
     password: root
-
+book:
+  days: 14

@@ -26,4 +26,8 @@ public class StudentService {
         commonDTO.setMessage("Student added successfully");
         return commonDTO;
     }
+
+    public Student getStudentById(int studentId){
+        return studentRepository.findById(studentId).orElse(null);
+    }
 }
